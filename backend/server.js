@@ -7,7 +7,7 @@ import authRoutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.routes.js';
 import connectToMongoDB from './db/connectToMongoDB.js';
 
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 const app = express();
 const PORT = process.env.PORT || 3000;
