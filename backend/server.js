@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser';
 
 import authRoutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.routes.js';
+import userRoutes from './routes/user.routes.js';
+
 import connectToMongoDB from './db/connectToMongoDB.js';
 
 dotenv.config({ path: '../.env' });
@@ -14,6 +16,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(cookieParser()); // Middleware to parse cookies
+app.use("/api/users", userRoutes);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
